@@ -1,14 +1,18 @@
 # typed: strict
 # frozen_string_literal: true
 
-class Toggler
+module Toggler
   class Scenario
     extend(T::Sig)
+
+    ArgsType = T.type_alias { T::Hash[Symbol, T.untyped] }
+    ExpectationType = T.type_alias { T.proc.params(result: T.untyped).void }
+    TemplateType = T.type_alias { T.proc.params(args: ArgsType).returns(T.untyped) }
 
     sig do
       params(
         default_args: ArgsType,
-        template_block: T.proc.params(args: ArgsType).returns(T.untyped),
+        template_block: TemplateType,
       ).void
     end
     def initialize(default_args:, &template_block)

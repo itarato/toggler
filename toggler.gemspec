@@ -5,6 +5,6 @@ Gem::Specification.new do |s|
   s.description = "Testing tool to allow quick iteration on variable testing."
   s.authors     = ["Peter Arato"]
   s.email       = "it.arato@gmail.com"
-  s.files       = Dir.glob("lib/**/*", File::FNM_DOTMATCH)
+  s.files       = ["lib/toggler.rb", "lib/toggler/scenario.rb"]
   s.license     = "MIT"
 end
