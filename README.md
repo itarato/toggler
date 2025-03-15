@@ -1,5 +1,7 @@
 # Toggler
 
+[![Gem Version](https://badge.fury.io/rb/test_toggler.svg)](https://badge.fury.io/rb/test_toggler)
+
 Toggler is a microtool for tests in Ruby, where the core of the test is shared throughout many tests, and it only differs in little variations.
 
 Example:
