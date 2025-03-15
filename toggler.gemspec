@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
-  s.name        = "toggler"
-  s.version     = "0.0.0"
+  s.name        = "test_toggler"
+  s.version     = "0.0.1"
   s.summary     = "Test run variator. Not a property tester."
   s.description = "Testing tool to allow quick iteration on variable testing."
   s.authors     = ["Peter Arato"]
