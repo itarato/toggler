@@ -20,17 +20,7 @@ end
 
 class MyTest < ::Minitest::Test
   def setup
-  end
-
-  def test_happy
-    subject = Subject.new(true)
-    result = subject.foo(true, true)
-
-    assert(result)
-  end
-
-  def test_toggle
-    toggler = Toggler.new(
+    @scenario = Toggler::Scenario.new(
       default_args: {
         flag: 123,
         beta1: true,
@@ -41,18 +31,12 @@ class MyTest < ::Minitest::Test
       result = subject.foo(args[:beta1], args[:beta2])
       result
     end
+  end
+  def test_happy
+    @scenario.expect { assert(_1) }
+  end
 
-    toggler
-      .add_scenario("default test case")
-      .expect { assert(_1) }
-      .build
-
-    toggler
-      .add_scenario("default test case")
-      .with_args(beta1: true, beta2: false)
-      .expect { assert(_1) }
-      .build
-
-    toggler.run
+  def test_false_when_missing_beta1
+    @scenario.with_args(beta1: true, beta2: false).expect { refute(_1) }
   end
 end
